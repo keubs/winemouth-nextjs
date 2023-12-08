@@ -1,14 +1,9 @@
 
-export default function Footer (){
+export default function Footer (props){
     return (
-        <footer>
-            <a
-            href="https://developers.wpengine.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            >
-            Part of the WP Engine Headless Developers Road Map 🗺️ 
-            </a>
+        <footer {...props}>
+            Contact Us<br />
+            Hello@winemouth.com
         </footer>
     )
 }

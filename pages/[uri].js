@@ -9,7 +9,7 @@ export default function SlugPage({ post }) {
   return (
     <div>
       <Head>
-        <title>Headless WP Next Starter</title>
+        <title>{post.title} | Wine Mouth</title>
         <link rel="icon" href="favicon.ico"></link>
       </Head>
 
