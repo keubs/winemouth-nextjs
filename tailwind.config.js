@@ -20,6 +20,12 @@ module.exports = {
         serif: ['var(--font-garamond)', 'ui-serif', 'Georgia'],
         sansSerif: ['Arial', 'ui-sans-serif'],
       },
+      letterSpacing: {
+        tight: '-0.02em',
+        wide: "1px",
+        wider: "1.5px",
+        widest: "2px",
+      },
     },
   },
   plugins: [],

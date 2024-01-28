@@ -8,9 +8,12 @@
   "dependencies": {
     "@apollo/client": "^3.8.8",
     "@next/font": "^14.0.4",
+    "eslint": "^8.56.0",
     "eslint-config-next": "^14.0.3",
+    "eslint-config-prettier": "^9.1.0",
     "graphql": "^16.3.0",
     "next": "13.4",
+    "prettier": "^3.2.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "^5.0.1"

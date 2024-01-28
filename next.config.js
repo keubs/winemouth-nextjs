@@ -1,5 +1,5 @@
 module.exports = {
     images: {
-        domains: ['winemouth.local'],
+        domains: ['winemouth.local', 'api.mouth.wine'],
     },
   }

@@ -28,4 +28,12 @@
     html {
         font-family: 'apple_garamond_lightregular';
     }
+    body {
+      background: #FBF6EA;
+    }
+    #__next {
+      display: flex;
+      justify-content: center;
+      min-height: 100vh;
+    }
   }
