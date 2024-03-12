@@ -36,11 +36,11 @@ export default function Home({ posts }) {
       </div>
       <main className={`flex justify-center ${applegaramond.variable} font-serif`}>
 
-        <div className="grid grid-cols-2 max-w-4xl gap-2">
+        <div className="grid grid-cols-2 max-w-4xl">
           {
-            posts.map((post) => {
+            posts.map((post, index) => {
               return (
-                <PostCard key={post.uri} post={post}></PostCard>
+                <PostCard key={post.uri} post={post} index={index}></PostCard>
               )
             })
           }

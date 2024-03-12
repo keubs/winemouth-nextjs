@@ -5,6 +5,7 @@ import { client } from '../lib/apollo'
 import { gql } from '@apollo/client';
 import Image from 'next/image';
 import localFont from 'next/font/local'
+import Link from 'next/link';
 
 const applegaramond = localFont({
   src: [
@@ -21,25 +22,37 @@ const applegaramond = localFont({
 })
 
 export default function SlugPage({ post }) {
-
+  const {
+    author: { node: { firstName, lastName } },
+    title,
+    content,
+    date,
+    featuredImage: {
+      node: {
+        sourceUrl
+      }
+    }
+  } = post
   return (
-    <div>
+    <div className="container justify-self-center bg-background flex flex-col min-h-screen">
       <div className="logoContainer max-w-200 justify-center flex mt-5 mb-10">
+      <Link href="/">
         <Image width="200" height="200" className="w-100" style={{ width: '200px' }} src="/winemouth.svg" alt="Wine Mouth Logo" />
+      </Link>
       </div>
-      <main className={`flex justify-center ${applegaramond.variable} font-serif`}>
-          <div className="siteHeader">
-            <h1 className="title">
-                {post.title}
-            </h1>
-            <p>✍️  &nbsp;&nbsp;{`${post.author.node.firstName} ${post.author.node.lastName}`} | 🗓️ &nbsp;&nbsp;{ new Date(post.date).toLocaleDateString() }</p>
-          </div>
-            <article dangerouslySetInnerHTML={{__html: post.content}}>   
-            </article>
+      <main className={`flex flex-col justify-center ${applegaramond.variable} font-serif`}>
+        <section className='flex flex-row px-6 border-2 py-6 border-black '>
+          <Image width={495} height={600} src={sourceUrl} alt="Wine Mouth Logo"  />
+          <h1 className="title text-5xl px-12 border-black">
+              {title}
+          </h1>
+        </section>
+        {/* <div className="siteHeader">
+          <p>{`${firstName} ${lastName}`} | 🗓️ &nbsp;&nbsp;{ new Date(date).toLocaleDateString() }</p>
+        </div> */}
+        <article className='px-20 font-sansSerif' dangerouslySetInnerHTML={{__html: content}} />
       </main>
-
       <Footer></Footer>
-
     </div>
   )
 }
@@ -50,10 +63,16 @@ export async function getStaticProps({ params }){
   const GET_POST_BY_URI = gql`
   query GetPostByURI($id: ID!) {
     post(id: $id, idType: URI) {
+      id
       title
       content
       date
       uri
+      featuredImage {
+        node {
+          sourceUrl
+        }
+      }
       author {
         node {
           firstName
@@ -68,7 +87,6 @@ export async function getStaticProps({ params }){
     variables: {
       id: params.uri
     }
-  
   })
   const post = response?.data?.post
   return {
