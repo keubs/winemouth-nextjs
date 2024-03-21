@@ -4,7 +4,7 @@ import Link from "next/link"
 export default function PostCard (props){
     const { post, index, ...rest } = props
     return (
-        <div className={`relative p-[47px] ${rest.className} border-y-2 border-l-2 ${index%2===1 ? 'border-r-2' : ''} border-black`}>
+        <div className={`relative sm:p-[47px] md:p-[47px] ${rest.className} border-y-2 border-l-2 ${index%2===1 ? 'border-r-2' : ''} border-black`}>
             <Link href={post.uri} className={"card"}>
             {post.featuredImage &&
                 <Image src={`${post.featuredImage.node.sourceUrl}?`} alt={post.title} width={400} height={400} />
