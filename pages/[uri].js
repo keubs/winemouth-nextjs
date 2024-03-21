@@ -47,7 +47,9 @@ export default function SlugPage({ post }) {
         </div>
         <main className={`flex flex-col justify-center ${applegaramond.variable} font-serif max-w-screen-lg self-center`}>
           <section className='flex flex-col md:flex-row px-6 border-2 py-6 border-black max-w-99 m-4 sm:m-1'>
-            <Image width={495} height={600} src={sourceUrl} alt="Wine Mouth Logo"  />
+            <div className="m-b-2">
+              <Image width={495} height={600} src={sourceUrl} alt="" />
+            </div>
             <h1 className="title text-5xl px-12 border-black">
                 {title}
             </h1>

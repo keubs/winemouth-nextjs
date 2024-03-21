@@ -6,7 +6,7 @@ export default function PostCard (props){
     const mobileBorders = `border-t-2 border-x-2 ${index === length-1 ? 'border-b-2' : ''}`
     const desktopBorders = `sm:border-y-2 ${index === length ? 'sm:border-b-2' : ''} ${index%2===1 ? 'sm:border-r-2' : ''} `
     return (
-        <div className={`relative 2xl:mx-4 p-8 md:p-[47px] ${rest.className} ${mobileBorders} ${desktopBorders} border-black`}>
+        <div className={`relative sm:mx-0 p-8 md:p-[47px] ${rest.className} ${mobileBorders} ${desktopBorders} border-black`}>
             <Link href={post.uri} className={"card"}>
             {post.featuredImage &&
                 <Image src={`${post.featuredImage.node.sourceUrl}?`} alt={post.title} width={400} height={400} />
